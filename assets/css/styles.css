@@ -1,0 +1,82 @@
+body {
+	background: #f1f1f1;
+}
+
+.bs-presentations{
+    position: relative;
+    width:auto;
+    padding: 15px 25px;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.bs-presentations > .row{
+	display:table;
+	width: calc(100% + 30px);
+}
+ 
+.bs-presentations > .row > [class^="col-"],
+.bs-presentations > .row > [class*=" col-"]{
+	float:none;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.cta-contents{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.cta-title{
+	margin: 0 auto 15px;
+	padding: 0;
+}
+
+.cta-desc{
+	padding: 0;
+}
+
+.cta-desc p:last-child{
+	margin-bottom: 0;
+}
+
+.cta-button{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+@media (max-width: 991px){
+    .bs-presentations > .row{
+        display:block;
+        width: auto;
+    }
+
+	.bs-presentations > .row > [class^="col-"],
+	.bs-presentations > .row > [class*=" col-"]{
+		float:none;
+		display:block;
+		vertical-align:middle;
+		position: relative;
+	}
+
+	.cta-contents{
+		text-align: left;
+	}
+}
+
+.btn-presentations-info {
+	background-color: #f1f1f1;
+	color: black;
+}
+
+.top-div {
+	margin-top: 50px;
+	margin-bottom: 15px;
+}
+
+.btn-presentation-link {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

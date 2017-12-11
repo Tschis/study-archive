@@ -1,0 +1,176 @@
+<!--
+
+    The MIT License
+    Copyright (c) 2017 Rodolfo Forte
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Study Presentation</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+	  
+	  blockquote {
+		border-left: 0.3em solid rgba(0,0,0,0.5);
+		padding: 0 15px;
+		font-style: italic;
+	  }
+	  
+	  img {
+		max-width:100%;
+	  }
+	  
+	  .red {
+		color: red;
+	  }
+	  
+	  .green {
+		color: green;
+	  }
+	  
+	  .footnote {
+		font-style: italic;
+		font-size: 14px;
+	  }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Collection
+
+.center[![java-collection-hierarchy](java-collection-hierarchy.jpeg)]
+
+---
+
+# ArrayList vs LinkedList
+
+* LinkedList implements List with a [doubly-linked list](https://en.wikipedia.org/wiki/Doubly_linked_list):
+  * allows for constant-time insertions or removals using iterators;
+  
+  * only sequential access of elements;
+  
+  * you can walk the list forwards or backwards, but finding a position in the list takes time proportional to the size of the list;
+
+* ArrayList implements List with a dynamically re-sizing array:
+  * allows fast random read access, grabbing elements in constant time;
+  
+  * adding/removing from anywhere but the end requires shifting all the latter elements over, either to make an opening or fill the gap;
+  
+  * while adding more elements than the capacity of the underlying array, a new array (1.5 times the size) is allocated;
+		* the old array is copied to the new one;
+		* adding to ArrayList is O(n) in worst case, constant on average;
+
+---
+
+# ArrayList vs LinkedList
+
+* For LinkedList<E>:
+
+  * get(int index) is O(n) average;
+  
+  * .green[add(E element) is O(1);]
+  
+  * add(int index, E element) is O(n) average;
+		
+  * remove(int index) is O(n) average;
+  
+  * .green[Iterator.remove() is O(1);]
+  
+  * .green[ListIterator.add(E element) is O(1);]
+  
+---
+
+# ArrayList vs LinkedList
+
+* For ArrayList<E>
+
+  * .green[get(int index) is O(1);]
+  
+  * add(E element) is O(1) amortized;
+      * O(n) worst-case, since the array must be resized and copied;
+	  
+  * add(int index, E element) is O(n) average;
+  
+  * remove(int index) is O(n) average;
+  
+  * Iterator.remove() is O(n) average;
+  
+  * ListIterator.add(E element) is O(n) average;
+
+---
+
+# ArrayList vs LinkedList
+
+* Complexity
+
+<br />
+
+.center[![complexity arraylist vs linkedlist](complexity-arraylist-vs-linkedlist.png)]
+
+---
+
+# ArrayList vs LinkedList
+
+* Iterating:
+  * Both are practically equally cheap;
+
+* Seeking:
+  * LinkedList follows the links in O(n) for worst case;
+  * ArrayList can compute the desired position and access it in O(1);
+  
+* Adding/Removing:
+  * LinkedList: 
+		* When reusing existing iterators, operations can be done in O(1) by changing the list locally only;
+		* Otherwise, operations are O(n) (except at the head);
+		
+  * ArrayList: O(n), since the remainder of the array needs to be moved;
+
+
+---
+
+# Credits
+
+* [StackOverflow - When to use LinkedList over ArrayList?](https://stackoverflow.com/a/322742/7976727)
+* [StackOverflow - What are the time complexities of various data structures?](https://stackoverflow.com/a/7294635/7976727)
+* [Big-O Cheat Sheet](http://bigocheatsheet.com/)
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
