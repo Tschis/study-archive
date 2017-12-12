@@ -48,7 +48,7 @@
 	  img {
 		max-width:100%;
 	  }
-	  
+
 	  .red {
 		color: red;
 	  }
@@ -68,7 +68,11 @@
 
 class: center, middle
 
-# Collection
+# Java Collections
+
+---
+
+# Main interfaces / Common implementations 
 
 .center[![java-collection-hierarchy](java-collection-hierarchy.jpeg)]
 
@@ -128,6 +132,70 @@ class: center, middle
 * Differs from HashSet because it maintains a doubly-linked list running through all of its entries, so it maintains insertion-order;
 
 * Provides constant-time performance for the basic operations (add, contains and remove);
+
+---
+
+# List
+
+* An ordered collection (a sequence);
+
+* The user has precise control over where in the list each element is inserted, and can access elements by their index (position), or search for elements in the list;
+
+* Unlike sets, lists typically allow duplicate elements, including multiple null elements;
+
+* Some list implementations have restrictions on the elements that they may contain:
+  * Some implementations prohibit null elements;
+  * Some have restrictions on the types of their elements;
+
+* Common implementations:
+  * ArrayList
+  * LinkedList
+  * Vector
+
+---
+
+# Vector
+
+* Implements a growable array of objects. Like an array, it contains components that can be accessed using an integer index;
+
+* The size of a Vector can grow or shrink as needed to accommodate adding and removing items after the Vector has been created;
+
+* Tries to optimize storage management by maintaining a capacity and a capacityIncrement;
+  * The capacity is always at least as large as the vector size; 
+  * It is usually larger because, as components are added to the vector, the storage increases in chunks the size of capacityIncrement;
+  
+* Unlike the new collection implementations, Vector is synchronized;
+  * If a thread-safe implementation is not needed, it is recommended to use ArrayList;
+
+---
+
+# ArrayList
+
+* Is roughly equivalent to Vector, except that it is not synchronized;
+
+* Operations size, isEmpty, get, set, iterator, and listIterator run in constant time;
+  * The add operation runs in amortized constant time;
+  * All of the other operations run in linear time (roughly);	
+
+---
+
+# LinkedList
+
+* Doubly-linked list implementation of the List and Deque interfaces;
+
+* Not synchronized;
+
+* Implements all optional list operations, and permits all elements (including null);
+
+<br />
+
+.center[![610px-Doubly-linked-list](610px-Doubly-linked-list.png)]
+
+---
+
+class: center, middle
+
+# Comparisons 
 
 ---
 
@@ -214,15 +282,16 @@ class: center, middle
 		
   * ArrayList: O(n), since the remainder of the array needs to be moved;
 
-
 ---
 
 # Credits
 
-* [Oracle](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/index.html)
-* [StackOverflow - When to use LinkedList over ArrayList?](https://stackoverflow.com/a/322742/7976727)
-* [StackOverflow - What are the time complexities of various data structures?](https://stackoverflow.com/a/7294635/7976727)
+* [Oracle - Collections Framework Overview](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/index.html)
+* [StackOverflow](https://stackoverflow.com)
+  * [When to use LinkedList over ArrayList?](https://stackoverflow.com/a/322742/7976727)
+  * [What are the time complexities of various data structures?](https://stackoverflow.com/a/7294635/7976727)
 * [Big-O Cheat Sheet](http://bigocheatsheet.com/)
+* [Wikipedia - Doubly Linked List](https://en.wikipedia.org/wiki/Doubly_linked_list)
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
