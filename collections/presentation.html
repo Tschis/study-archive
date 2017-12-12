@@ -25,7 +25,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Study Presentation</title>
+    <title>Java Collections</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -71,6 +71,63 @@ class: center, middle
 # Collection
 
 .center[![java-collection-hierarchy](java-collection-hierarchy.jpeg)]
+
+---
+
+# Set
+
+* A collection that contains no duplicate elements and at most one null element;
+
+* All constructors must create a set that contains no duplicate elements;
+
+* Some set implementations have restrictions on the elements that they may contain:
+  * Some implementations prohibit null elements;
+  * Some have restrictions on the types of their elements;
+  
+* Common implementations:
+  * HashSet
+  * TreeSet 
+  
+---
+
+# TreeSet
+
+* Based on a TreeMap;
+
+* Not synchronized;
+
+* Elements are ordered using their natural ordering, or by a Comparator provided at set creation time;
+
+* Provides guaranteed log(n) time cost for the basic operations (add, remove and contains);
+
+---
+
+# HashSet
+
+* Backed by a HashMap instance;
+
+* Permits the null element;
+
+* Not synchronized;
+
+* Makes no guarantees as to the iteration order of the set; 
+  * In particular, it does not guarantee that the order will remain constant over time;
+
+* Offers constant time performance for the basic operations (add, remove, contains and size);
+
+---
+
+# LinkedHashSet
+
+* Hash table and linked list implementation of the Set interface, with predictable iteration order;
+
+* Permits the null element;
+
+* Not synchronized;
+
+* Differs from HashSet because it maintains a doubly-linked list running through all of its entries, so it maintains insertion-order;
+
+* Provides constant-time performance for the basic operations (add, contains and remove);
 
 ---
 
@@ -162,6 +219,7 @@ class: center, middle
 
 # Credits
 
+* [Oracle](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/index.html)
 * [StackOverflow - When to use LinkedList over ArrayList?](https://stackoverflow.com/a/322742/7976727)
 * [StackOverflow - What are the time complexities of various data structures?](https://stackoverflow.com/a/7294635/7976727)
 * [Big-O Cheat Sheet](http://bigocheatsheet.com/)
