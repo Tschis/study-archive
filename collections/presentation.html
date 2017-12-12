@@ -78,6 +78,10 @@ class: center, middle
 
 ---
 
+class: center, middle
+# Set
+
+---
 # Set
 
 * A collection that contains no duplicate elements and at most one null element;
@@ -135,6 +139,11 @@ class: center, middle
 
 ---
 
+class: center, middle
+# List
+
+---
+
 # List
 
 * An ordered collection (a sequence);
@@ -156,26 +165,27 @@ class: center, middle
 
 # Vector
 
-* Implements a growable array of objects. Like an array, it contains components that can be accessed using an integer index;
+* Is roughly equivalent to ArrayList, except that it is synchronized;
 
-* The size of a Vector can grow or shrink as needed to accommodate adding and removing items after the Vector has been created;
-
-* Tries to optimize storage management by maintaining a capacity and a capacityIncrement;
-  * The capacity is always at least as large as the vector size; 
-  * It is usually larger because, as components are added to the vector, the storage increases in chunks the size of capacityIncrement;
-  
-* Unlike the new collection implementations, Vector is synchronized;
-  * If a thread-safe implementation is not needed, it is recommended to use ArrayList;
+* If a thread-safe implementation is not needed, it is recommended to use ArrayList;
 
 ---
 
 # ArrayList
 
-* Is roughly equivalent to Vector, except that it is not synchronized;
+* Implements a growable array of objects;
+
+* Like an array, it contains components that can be accessed using an integer index;
+
+* The size can grow as needed to accommodate adding items after the ArrayList has been created;
 
 * Operations size, isEmpty, get, set, iterator, and listIterator run in constant time;
   * The add operation runs in amortized constant time;
   * All of the other operations run in linear time (roughly);	
+
+* Each ArrayList instance has a capacity;
+  * The capacity is always at least as large as the list size; 
+  * As elements are added, its capacity grows automatically;
 
 ---
 
@@ -191,6 +201,50 @@ class: center, middle
 
 .center[![610px-Doubly-linked-list](610px-Doubly-linked-list.png)]
 
+---
+
+class: center, middle
+# Queue
+
+---
+
+# Queue
+
+* A collection designed for holding elements prior to processing;
+
+* Provide additional insertion, extraction, and inspection operations;
+  * Each of these exists in two forms: one throws an exception if the operation fails, the other returns a special value (null or false);
+
+* Every Queue implementation must specify its ordering properties;
+  
+* Queues typically, but do not necessarily, order elements in a FIFO manner, where all new elements are inserted at the tail of the queue; 
+  * Priority queues order elements according to a supplied comparator, or the elements' natural ordering;
+  * Stacks are LIFO queues, ordering the elements in a LIFO manner;
+  
+* The head of the queue is always that element which would be removed by a call to remove() or poll();
+
+---
+
+# PriorityQueue
+
+* Does not permit null elements;
+
+* Not synchronized;
+
+* The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time;
+
+* The head is the least element with respect to the specified ordering;
+  * If multiple elements are tied for least value, the head is one of those elements -- ties are broken arbitrarily;
+
+* Is unbounded, but has an internal capacity;
+  * Capacity is always at least as large as the queue size;
+  * As elements are added, its capacity grows automatically;
+
+* Provides: 
+  * O(log(n)) time for offer, poll, remove and add methods;
+  * Linear time for the remove(Object) and contains(Object) methods; 
+  * Constant time for the retrieval methods (peek, element, and size)
+  
 ---
 
 class: center, middle
