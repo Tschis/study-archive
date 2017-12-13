@@ -1,11 +1,11 @@
 body {
-	background: #f1f1f1;
+	background: #b1b1b1;
 }
 
 .bs-presentations{
     position: relative;
     width:auto;
-    padding: 15px 25px;
+    padding: 5px 25px;
     border: 1px solid black;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -24,25 +24,25 @@ body {
 	vertical-align:middle;
 }
 
-.cta-contents{
-	padding-top: 10px;
-	padding-bottom: 10px;
+.contents{
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
-.cta-title{
-	margin: 0 auto 15px;
+.title{
+	margin: 0 auto 5px;
 	padding: 0;
 }
 
-.cta-desc{
+.desc{
 	padding: 0;
 }
 
-.cta-desc p:last-child{
+.desc p:last-child{
 	margin-bottom: 0;
 }
 
-.cta-button{
+.button{
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
@@ -61,22 +61,26 @@ body {
 		position: relative;
 	}
 
-	.cta-contents{
+	.contents{
 		text-align: left;
 	}
 }
 
-.btn-presentations-info {
-	background-color: #f1f1f1;
-	color: black;
+.text-presentations {
+	color: #d1d1d1;
 }
 
-.top-div {
-	margin-top: 50px;
-	margin-bottom: 15px;
+.btn-presentations {
+	background-color: #d1d1d1;
+	color: black;
 }
 
 .btn-presentation-link {
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.top-div {
+	margin-top: 50px;
+	margin-bottom: 25px;
 }
