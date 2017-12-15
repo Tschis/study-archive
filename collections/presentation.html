@@ -94,7 +94,8 @@ class: center, middle
   
 * Common implementations:
   * HashSet
-  * TreeSet 
+  * TreeSet
+  * LinkedHashSet
   
 ---
 
@@ -157,17 +158,18 @@ class: center, middle
   * Some have restrictions on the types of their elements;
 
 * Common implementations:
+  * Vector
   * ArrayList
   * LinkedList
-  * Vector
-
+  
 ---
 
 # Vector
 
-* Is roughly equivalent to ArrayList, except that it is synchronized;
+* This class was retrofitted to implement the List interface, making it a member of the Java Collections Framework;
 
-* If a thread-safe implementation is not needed, it is recommended to use ArrayList;
+* Is roughly equivalent to ArrayList, except that it is synchronized;
+  * If a thread-safe implementation is not needed, it is recommended to use ArrayList;
 
 ---
 
@@ -199,7 +201,7 @@ class: center, middle
 
 <br />
 
-.center[![610px-Doubly-linked-list](610px-Doubly-linked-list.png)]
+.center[![](doubly-linked-list.png)]
 
 ---
 
@@ -250,91 +252,98 @@ class: center, middle
 class: center, middle
 
 # Comparisons 
+## ArrayList vs LinkedList
 
 ---
 
 # ArrayList vs LinkedList
 
 * LinkedList implements List with a [doubly-linked list](https://en.wikipedia.org/wiki/Doubly_linked_list):
-  * allows for constant-time insertions or removals using iterators;
+  * Allows for constant-time insertions or removals using iterators;
   
-  * only sequential access of elements;
+  * Only sequential access of elements;
   
-  * you can walk the list forwards or backwards, but finding a position in the list takes time proportional to the size of the list;
+  * You can walk the list forwards or backwards, but finding a position in the list takes time proportional to the size of the list;
 
 * ArrayList implements List with a dynamically re-sizing array:
-  * allows fast random read access, grabbing elements in constant time;
+  * Allows constant time random read access;
   
-  * adding/removing from anywhere but the end requires shifting all the latter elements over, either to make an opening or fill the gap;
+  * Adding/removing from anywhere but the end requires shifting all the latter elements over;
   
-  * while adding more elements than the capacity of the underlying array, a new array (1.5 times the size) is allocated;
-		* the old array is copied to the new one;
-		* adding to ArrayList is O(n) in worst case, constant on average;
+  * When the capacity of the underlying array is exceeded, a bigger array is allocated;
+      * This resizing makes add operations O(n) at worst case, but constant on average;
 
 ---
 
-# ArrayList vs LinkedList
+# LinkedList Complexities
 
-* For LinkedList<E>:
+* get(int index) is O(n) average;
 
-  * get(int index) is O(n) average;
-  
-  * .green[add(E element) is O(1);]
-  
-  * add(int index, E element) is O(n) average;
-		
-  * remove(int index) is O(n) average;
-  
-  * .green[Iterator.remove() is O(1);]
-  
-  * .green[ListIterator.add(E element) is O(1);]
+* .green[add(E element) is O(1);]
+
+* add(int index, E element) is O(n) average;
+	
+* remove(int index) is O(n) average;
+
+* .green[Iterator.remove() is O(1);]
+
+* .green[ListIterator.add(E element) is O(1);]
   
 ---
 
-# ArrayList vs LinkedList
+# ArrayList Complexities
 
-* For ArrayList<E>
+* .green[get(int index) is O(1);]
 
-  * .green[get(int index) is O(1);]
+* .green[add(E element) is O(1) amortized];
+  * O(n) worst-case, while resizing array;
   
-  * add(E element) is O(1) amortized;
-      * O(n) worst-case, since the array must be resized and copied;
-	  
-  * add(int index, E element) is O(n) average;
-  
-  * remove(int index) is O(n) average;
-  
-  * Iterator.remove() is O(n) average;
-  
-  * ListIterator.add(E element) is O(n) average;
+* add(int index, E element) is O(n) average;
+
+* remove(int index) is O(n) average;
+
+* Iterator.remove() is O(n) average;
+
+* ListIterator.add(E element) is O(n) average;
 
 ---
 
-# ArrayList vs LinkedList
+# ArrayList vs LinkedList Complexities
 
-* Complexity
+<br /><br /><br />
 
-<br />
-
-.center[![complexity arraylist vs linkedlist](complexity-arraylist-vs-linkedlist.png)]
+.center[![](complexity-arraylist-vs-linkedlist.png)]
 
 ---
 
-# ArrayList vs LinkedList
+class: center, middle
 
-* Iterating:
-  * Both are practically equally cheap;
+# Comparisons 
+## HashSet vs TreeSet
 
-* Seeking:
-  * LinkedList follows the links in O(n) for worst case;
-  * ArrayList can compute the desired position and access it in O(1);
-  
-* Adding/Removing:
-  * LinkedList: 
-		* When reusing existing iterators, operations can be done in O(1) by changing the list locally only;
-		* Otherwise, operations are O(n) (except at the head);
-		
-  * ArrayList: O(n), since the remainder of the array needs to be moved;
+---
+
+# HashSet vs TreeSet
+
+* Both implementations are not synchronized;
+
+* Both garantee duplicate-free collections of elements;
+
+* HashSet is faster than TreeSet;
+  * O(1) for operations like add, remove and contains;
+
+* TreeSet guarantees that elements will be sorted;
+  * Ascending natural order, or using a comparator specified via constructor;
+  * The cost is O(log n) complexity for basic operations like add, remove and contains;
+
+---
+
+
+# HashSet vs TreeSet Complexities
+
+<br /><br /><br />
+
+.center[![](complexity-hashset-vs-treeset.png)]
 
 ---
 
@@ -344,6 +353,7 @@ class: center, middle
 * [StackOverflow](https://stackoverflow.com)
   * [When to use LinkedList over ArrayList?](https://stackoverflow.com/a/322742/7976727)
   * [What are the time complexities of various data structures?](https://stackoverflow.com/a/7294635/7976727)
+  * [Hashset vs Treeset](https://stackoverflow.com/a/4464394/7976727)
 * [Big-O Cheat Sheet](http://bigocheatsheet.com/)
 * [Wikipedia - Doubly Linked List](https://en.wikipedia.org/wiki/Doubly_linked_list)
 
