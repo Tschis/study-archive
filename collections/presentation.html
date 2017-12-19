@@ -72,9 +72,11 @@ class: center, middle
 
 ---
 
-# Main interfaces / Common implementations 
+# Main interfaces
 
-.center[![](images/java-collection-hierarchy.png)]
+<br /><br /><br /><br />
+
+.center[![](images/colls-coreInterfaces.png)]
 
 ---
 
@@ -246,7 +248,32 @@ class: center, middle
   * O(log(n)) time for offer, poll, remove and add methods;
   * Linear time for the remove(Object) and contains(Object) methods; 
   * Constant time for the retrieval methods (peek, element, and size)
+
+---
+
+class: center, middle
+# Deque
+
+---
+
+# Deque
+
+* Linear collection that supports insertion and removal at both ends;
+
+* Name is short for "double ended queue", usually pronounced "deck";
+
+* Extends the Queue interface;
+  * When a deque is used as a queue, FIFO behavior results;
   
+* Deques can also be used as LIFO stacks;
+  * Should be used in preference to the legacy Stack class;
+
+* Provides two methods to remove interior elements, removeFirstOccurrence and removeLastOccurrence;
+
+* Unlike the List interface, it does not provide support for indexed access to elements;
+
+* LinkedList is the most popular implementation;
+
 ---
 
 class: center, middle
@@ -337,7 +364,6 @@ class: center, middle
   * The cost is O(log n) complexity for basic operations like add, remove and contains;
 
 ---
-
 
 # HashSet vs TreeSet Complexities
 
