@@ -81,6 +81,79 @@ class: center, middle
 ---
 
 class: center, middle
+# java.util.Collection
+
+---
+
+# Collection
+
+* A collection is an object that represents a group of objects;
+
+* The Collections Framework is a unified architecture for representing and manipulating collections;
+  * Enables collections to be manipulated independently of implementation details;
+
+* The primary advantages of a collections framework are that it:
+
+  * Reduces programming effort by providing data structures and algorithms so you don't have to write them yourself;
+  
+  * Provides high-performance implementations of data structures and algorithms;
+
+???
+
+* Because the various implementations of each interface are interchangeable, programs can be tuned by switching implementations;
+
+---
+
+# Collection  
+  
+* The primary advantages of a collections framework are that it:
+  * Provides interoperability between unrelated APIs;
+  
+  * Reduces the effort required to learn or to design and implement ad hoc APIs;
+  
+  * Fosters software reuse by providing a standard interface for collections and algorithms with which to manipulate them;
+
+???
+
+* Provides interoperability: by establishing a common language to pass collections back and forth;
+
+* Reduces the effort: by not requiring you to learn and produce your own ad hoc collections APIs;
+
+---
+
+# Collection 
+
+* Many modification methods in the interfaces are labeled optional;
+  
+* The documentation for each implementation must specify which optional operations are supported;
+
+* Several terms are introduced to aid in this specification:
+
+  * Collections that do not support modification operations are referred to as "unmodifiable", the counterpart being "modifiable";
+  
+  * Collections that guarantee that no change in the collection object will be visible are referred to as "immutable", the counterpart being "mutable";
+
+???
+
+* Optional: implementations are permitted to not perform one or more of these operations, throwing a runtime exception (UnsupportedOperationException) if they are attempted;
+
+* Modification operations such as add, remove and clear;
+
+---
+
+# Collection 
+
+* Several terms are introduced to aid in this specification:  
+
+  * Lists that guarantee that their size remains constant even though the elements can change are referred to as "fixed-size", the counterpart being "variable-size";
+  
+  * Lists that support fast (generally constant time) indexed element access are known as random access lists, the counterpart being "sequential access lists";
+      * The RandomAccess marker interface enables lists to advertise the fact that they support random access;
+      * This enables generic algorithms to change their behavior to provide good performance when applied to either random or sequential access lists;  
+      
+---
+
+class: center, middle
 # Set
 
 ---
@@ -370,6 +443,22 @@ class: center, middle
 <br /><br /><br />
 
 .center[![](images/complexity-hashset-vs-treeset.png)]
+
+---
+
+class: center, middle
+
+# Map
+
+---
+
+# Map
+
+* The other collection interfaces are based on java.util.Map and are not true collections, i.e., they do not implement the Collection interface;
+
+* However, they contain collection-view operations, which enables them to be manipulated as collections;
+
+* Map has the following offspring:
 
 ---
 
