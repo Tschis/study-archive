@@ -2,7 +2,7 @@ body {
 	background: #b1b1b1;
 }
 
-.bs-presentations{
+.presentations{
     position: relative;
     width:auto;
     padding: 5px 25px;
@@ -12,13 +12,13 @@ body {
     border-radius: 5px;
 }
 
-.bs-presentations > .row{
+.presentations > .row{
 	display:table;
 	width: calc(100% + 30px);
 }
  
-.bs-presentations > .row > [class^="col-"],
-.bs-presentations > .row > [class*=" col-"]{
+.presentations > .row > [class^="col-"],
+.presentations > .row > [class*=" col-"]{
 	float:none;
 	display:table-cell;
 	vertical-align:middle;
@@ -48,13 +48,13 @@ body {
 }
 
 @media (max-width: 991px){
-    .bs-presentations > .row{
-        display:block;
-        width: auto;
-    }
+  .presentations > .row{
+    display:block;
+    width: auto;
+  }
 
-	.bs-presentations > .row > [class^="col-"],
-	.bs-presentations > .row > [class*=" col-"]{
+	.presentations > .row > [class^="col-"],
+	.presentations > .row > [class*=" col-"]{
 		float:none;
 		display:block;
 		vertical-align:middle;

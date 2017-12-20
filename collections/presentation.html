@@ -35,7 +35,7 @@
       body { font-family: 'Droid Serif'; }
       h1, h2, h3 {
         font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
+         font-weight: normal;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
 	  
@@ -147,10 +147,13 @@ class: center, middle
 
   * Lists that guarantee that their size remains constant even though the elements can change are referred to as "fixed-size", the counterpart being "variable-size";
   
-  * Lists that support fast (generally constant time) indexed element access are known as random access lists, the counterpart being "sequential access lists";
-      * The RandomAccess marker interface enables lists to advertise the fact that they support random access;
-      * This enables generic algorithms to change their behavior to provide good performance when applied to either random or sequential access lists;  
-      
+  * Lists that support fast (generally constant time) indexed element access are known as "random access lists", the counterpart being "sequential access lists";
+      * The RandomAccess marker interface is used by lists to advertise the fact that they support random access;
+
+???
+
+* This enables generic algorithms to change their behavior to provide good performance when applied to either random or sequential access lists;  
+
 ---
 
 class: center, middle
@@ -165,6 +168,7 @@ class: center, middle
 
 * Some set implementations have restrictions on the elements that they may contain:
   * Some implementations prohibit null elements;
+  
   * Some have restrictions on the types of their elements;
   
 * Common implementations:
@@ -197,7 +201,7 @@ class: center, middle
 * Makes no guarantees as to the iteration order of the set; 
   * In particular, it does not guarantee that the order will remain constant over time;
 
-* Offers constant time performance for the basic operations (add, remove, contains and size);
+* Offers constant time performance for the basic operations: add, remove, contains and size;
 
 ---
 
@@ -211,7 +215,7 @@ class: center, middle
 
 * Differs from HashSet because it maintains a doubly-linked list running through all of its entries, so it maintains insertion-order;
 
-* Provides constant-time performance for the basic operations (add, contains and remove);
+* Provides constant-time performance for the basic operations: add, contains and remove;
 
 ---
 
@@ -230,6 +234,7 @@ class: center, middle
 
 * Some list implementations have restrictions on the elements that they may contain:
   * Some implementations prohibit null elements;
+  
   * Some have restrictions on the types of their elements;
 
 * Common implementations:
@@ -252,23 +257,31 @@ class: center, middle
 
 * Implements a growable array of objects;
 
-* Like an array, it contains components that can be accessed using an integer index;
+* Contains elements that can be accessed using an integer index;
 
 * The size can grow as needed to accommodate adding items after the ArrayList has been created;
 
 * Operations size, isEmpty, get, set, iterator, and listIterator run in constant time;
   * The add operation runs in amortized constant time;
+  
   * All of the other operations run in linear time (roughly);	
 
-* Each ArrayList instance has a capacity;
-  * The capacity is always at least as large as the list size; 
-  * As elements are added, its capacity grows automatically;
+* Each ArrayList instance has a capacity and, as elements are added, its capacity grows automatically;
+
+???
+
+* The capacity is always at least as large as the list size;
 
 ---
 
 # LinkedList
 
-* Doubly-linked list implementation of the List and Deque interfaces;
+* [Doubly-linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) implementation of the List and Deque interfaces;
+  * A set of sequentially linked nodes;
+  
+  * Each node contains two fields that are references to the previous and to the next node in the sequence;
+  
+  * The beginning and ending nodes point to null;
 
 * Not synchronized;
 
@@ -290,16 +303,22 @@ class: center, middle
 * A collection designed for holding elements prior to processing;
 
 * Provide additional insertion, extraction, and inspection operations;
-  * Each of these exists in two forms: one throws an exception if the operation fails, the other returns a special value (null or false);
 
 * Every Queue implementation must specify its ordering properties;
   
-* Queues typically, but do not necessarily, order elements in a FIFO manner, where all new elements are inserted at the tail of the queue; 
+* Queues typically, but do not necessarily, order elements in a FIFO manner;
   * Priority queues order elements according to a supplied comparator, or the elements' natural ordering;
-  * Stacks are LIFO queues, ordering the elements in a LIFO manner;
+  
+  * Stacks are queues ordering the elements in a LIFO manner;
   
 * The head of the queue is always that element which would be removed by a call to remove() or poll();
 
+???
+  * Each these additional operations exists in two forms: 
+    * One throws an exception if the operation fails, designed specifically for use with capacity-restricted Queue implementations;
+    
+    * The other returns a special value (null or false), for most implementations, where insert operations cannot fail;
+  
 ---
 
 # PriorityQueue
@@ -308,18 +327,28 @@ class: center, middle
 
 * Not synchronized;
 
-* The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time;
+* The elements of the priority queue are ordered according to their natural ordering, or by a provided Comparator;
 
 * The head is the least element with respect to the specified ordering;
-  * If multiple elements are tied for least value, the head is one of those elements -- ties are broken arbitrarily;
+
+???
+
+* Head: if multiple elements are tied for least value, the head is one of those elements -- ties are broken arbitrarily;
+
+---
+
+# PriorityQueue
 
 * Is unbounded, but has an internal capacity;
   * Capacity is always at least as large as the queue size;
+  
   * As elements are added, its capacity grows automatically;
 
 * Provides: 
   * O(log(n)) time for offer, poll, remove and add methods;
+  
   * Linear time for the remove(Object) and contains(Object) methods; 
+  
   * Constant time for the retrieval methods (peek, element, and size)
 
 ---
@@ -343,7 +372,7 @@ class: center, middle
 
 * Provides two methods to remove interior elements, removeFirstOccurrence and removeLastOccurrence;
 
-* Unlike the List interface, it does not provide support for indexed access to elements;
+* Does not provide support for indexed access to elements;
 
 * LinkedList is the most popular implementation;
 
@@ -358,12 +387,10 @@ class: center, middle
 
 # ArrayList vs LinkedList
 
-* LinkedList implements List with a [doubly-linked list](https://en.wikipedia.org/wiki/Doubly_linked_list):
+* LinkedList implements List with a doubly-linked list:
   * Allows for constant-time insertions or removals using iterators;
-  
-  * Only sequential access of elements;
-  
-  * You can walk the list forwards or backwards, but finding a position in the list takes time proportional to the size of the list;
+   
+  * You can walk the list forwards or backwards, but finding an element in the list takes time proportional to its size;
 
 * ArrayList implements List with a dynamically re-sizing array:
   * Allows constant time random read access;
@@ -371,7 +398,10 @@ class: center, middle
   * Adding/removing from anywhere but the end requires shifting all the latter elements over;
   
   * When the capacity of the underlying array is exceeded, a bigger array is allocated;
-      * This resizing makes add operations O(n) at worst case, but constant on average;
+
+???
+
+* ArrayList resizing makes add operations O(n) at worst case, but constant on average;
 
 ---
 
@@ -429,11 +459,12 @@ class: center, middle
 
 * Both garantee duplicate-free collections of elements;
 
-* HashSet is faster than TreeSet;
+* HashSet is faster than TreeSet on basic operations;
   * O(1) for operations like add, remove and contains;
 
 * TreeSet guarantees that elements will be sorted;
   * Ascending natural order, or using a comparator specified via constructor;
+  
   * The cost is O(log n) complexity for basic operations like add, remove and contains;
 
 ---
@@ -454,11 +485,22 @@ class: center, middle
 
 # Map
 
-* The other collection interfaces are based on java.util.Map and are not true collections, i.e., they do not implement the Collection interface;
+* Other collection interfaces are based on java.util.Map and are not true collections, i.e., they do not implement the Collection interface;
 
 * However, they contain collection-view operations, which enables them to be manipulated as collections;
 
-* Map has the following offspring:
+* A map is an object that maps keys to values;
+
+* It cannot contain duplicate keys, each key can map to at most one value;
+
+* Provides three collection views, which allow a map's contents to be viewed as:
+  * A set of keys;
+  * A collection of values;
+  * A set of key-value mappings (entries);
+  
+???
+
+* Some implementations make specific guarantees as to their order, like the TreeMap, and others do not, like the HashMap;
 
 ---
 
