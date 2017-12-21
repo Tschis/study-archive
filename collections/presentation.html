@@ -228,7 +228,7 @@ class: center, middle
 
 * An ordered collection (a sequence);
 
-* The user has precise control over where in the list each element is inserted, and can access elements by their index (position), or search for elements in the list;
+* User has precise control over where each element is inserted, and can access elements by their index;
 
 * Unlike sets, lists typically allow duplicate elements, including multiple null elements;
 
@@ -257,18 +257,17 @@ class: center, middle
 
 * Implements a growable array of objects;
 
-* Contains elements that can be accessed using an integer index;
-
 * The size can grow as needed to accommodate adding items after the ArrayList has been created;
 
 * Operations size, isEmpty, get, set, iterator, and listIterator run in constant time;
-  * The add operation runs in amortized constant time;
   
-  * All of the other operations run in linear time (roughly);	
+* All of the other operations run in linear time (roughly);	
 
 * Each ArrayList instance has a capacity and, as elements are added, its capacity grows automatically;
 
 ???
+
+* The add operation runs in amortized constant time;
 
 * The capacity is always at least as large as the list size;
 
@@ -485,22 +484,67 @@ class: center, middle
 
 # Map
 
-* Other collection interfaces are based on java.util.Map and are not true collections, i.e., they do not implement the Collection interface;
-
-* However, they contain collection-view operations, which enables them to be manipulated as collections;
-
 * A map is an object that maps keys to values;
 
 * It cannot contain duplicate keys, each key can map to at most one value;
 
+* Not true collections: implementations based on java.util.Map do not implement the Collection interface;
+
+* However, they contain collection-view operations, which enables them to be manipulated as collections;
+
 * Provides three collection views, which allow a map's contents to be viewed as:
   * A set of keys;
   * A collection of values;
-  * A set of key-value mappings (entries);
+  * A set of key-value mappings;
+  
+* Common implementations:
+  * HashMap
+  * TreeMap
   
 ???
 
 * Some implementations make specific guarantees as to their order, like the TreeMap, and others do not, like the HashMap;
+
+* keySet(), values(), entrySet();
+
+---
+
+# HashMap
+
+* Implementation of the Map interface based on a hash table; 
+  * Is roughly equivalent to Hashtable, except that it is not synchronized and permits null values and the null key; 
+  
+* Provides all of the optional map operations;
+
+* Makes no guarantees as to the order of the map and does not guarantee that it will remain constant over time either;
+
+* Provides constant-time performance for basic operations (get and put);
+  * Assuming the hash function disperses the elements properly among the buckets;
+
+---
+
+# HashMap
+
+* A HashMap has two parameters that affect its performance: initial capacity and load factor:
+  * The capacity is the number of buckets in the hash table;
+  
+  * The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased;
+  
+  * When the number of entries in the hash table exceeds the limit, it is rehashed (internal data structures are rebuilt) so that the number of buckets grows;
+
+* Creating it with a sufficiently large capacity will allow the mappings to be stored more efficiently than letting it perform automatic rehashing;
+
+???
+
+* Limit of hash table: product of the load factor and the current capacity;
+
+---
+
+#HashMap
+
+<br />
+
+.center[![](images/hashtable.png)]
 
 ---
 
@@ -512,7 +556,9 @@ class: center, middle
   * [What are the time complexities of various data structures?](https://stackoverflow.com/a/7294635/7976727)
   * [Hashset vs Treeset](https://stackoverflow.com/a/4464394/7976727)
 * [Big-O Cheat Sheet](http://bigocheatsheet.com/)
-* [Wikipedia - Doubly Linked List](https://en.wikipedia.org/wiki/Doubly_linked_list)
+* [Wikipedia](https://en.wikipedia.org/)
+  * [Doubly Linked List](https://en.wikipedia.org/wiki/Doubly_linked_list)
+  * [Hash table](https://en.wikipedia.org/wiki/Hash_table)
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
