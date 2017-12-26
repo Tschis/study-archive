@@ -584,15 +584,19 @@ class: center, middle
       * The order might even change when new elements are added;
       
   * Is faster in general, providing O(1) complexity for basic operations;
-  
-  * Only works with objects having a suitable hashCode() operation;
 
-* TreeSet:
+  * Only works with objects having a suitable hashCode() operation;
+  
+  * Iteration performance depends on capacity and load factor;
+
+* TreeMap:
   * Guarantees ordering at the cost of being slower: O(log(n)) for basic operations;
   
   * Only works with Comparable objects;
   
   * Additionally, it implements the SortedMap interface, which contains methods that depend on this sort order;
+  
+  * Does not provide tuning parameters;
   
 ---
 
