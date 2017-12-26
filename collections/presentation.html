@@ -464,7 +464,7 @@ class: center, middle
 * TreeSet guarantees that elements will be sorted;
   * Ascending natural order, or using a comparator specified via constructor;
   
-  * The cost is O(log n) complexity for basic operations like add, remove and contains;
+  * The cost is O(log n) complexity for basic operations;
 
 ---
 
@@ -523,6 +523,14 @@ class: center, middle
 
 ---
 
+#HashMap
+
+<br />
+
+.center[![](images/hashtable.png)]
+
+---
+
 # HashMap
 
 * A HashMap has two parameters that affect its performance: initial capacity and load factor:
@@ -540,12 +548,52 @@ class: center, middle
 
 ---
 
-#HashMap
+# TreeMap
 
-<br />
+* A [Red-Black tree](https://en.wikipedia.org/wiki/Red-black_tree) based NavigableMap/SortedMap implementation;
 
-.center[![](images/hashtable.png)]
+* Sorted according to the natural ordering of its keys, or by a provided Comparator;
+  * This order is reflected when iterating over the map's collection views;
 
+* Provides guaranteed O(log(n)) time cost for the containsKey, get, put and remove operations;
+
+* Not synchronized;
+
+* All keys inserted into a sorted map must implement the Comparable interface (or be accepted by the specified comparator);
+  * All such keys must be mutually comparable: k1.compareTo(k2) or comparator.compare(k1, k2) must not throw a ClassCastException;
+
+???
+
+* Map collection views: entrySet(), keySet() and values() methods;
+
+* It is the map analogue of SortedSet;
+
+---
+
+class: center, middle
+
+# Comparisons 
+## HashMap vs TreeMap
+
+---
+
+# HashMap vs TreeMap
+
+* HashMap:
+  * Makes no guarantees about the iteration order;
+      * The order might even change when new elements are added;
+      
+  * Is faster in general, providing O(1) complexity for basic operations;
+  
+  * Only works with objects having a suitable hashCode() operation;
+
+* TreeSet:
+  * Guarantees ordering at the cost of being slower: O(log(n)) for basic operations;
+  
+  * Only works with Comparable objects;
+  
+  * Additionally, it implements the SortedMap interface, which contains methods that depend on this sort order;
+  
 ---
 
 # Credits
@@ -555,6 +603,7 @@ class: center, middle
   * [When to use LinkedList over ArrayList?](https://stackoverflow.com/a/322742/7976727)
   * [What are the time complexities of various data structures?](https://stackoverflow.com/a/7294635/7976727)
   * [Hashset vs Treeset](https://stackoverflow.com/a/4464394/7976727)
+  * [What are hashtables and hashmaps and their typical use cases?](https://stackoverflow.com/a/138285/7976727)
 * [Big-O Cheat Sheet](http://bigocheatsheet.com/)
 * [Wikipedia](https://en.wikipedia.org/)
   * [Doubly Linked List](https://en.wikipedia.org/wiki/Doubly_linked_list)
